@@ -91,8 +91,8 @@ run.prototype.toggleClick = function(o, draw) {
         }
 
 }
-run.prototype.Random = function(length) {
-    
+run.prototype.save = function(length) {
+    console.log(savetext.value);
     var saveP = "";
     this.clickedArr.forEach(function(o, index) {
                             saveP = saveP +index +":"+ o.x+","+ o.y+","+o.z+"|";
@@ -129,6 +129,7 @@ run.prototype.Random = function(length) {
 }
 
 run.prototype.Read = function() {
+    console.log(readtext.value);
     console.log("********* call smart contract by \"call\" *****************")
     var func = "get"
     var args = "[\"" + "test" + "\"]"
@@ -186,10 +187,11 @@ let a = new run(canvas);
 
 let clean = document.querySelector(".clean");
 let pencolor = document.querySelector(".pencolor");
-let random = document.querySelector(".random");
+let save = document.querySelector(".save");
 let down = document.querySelector(".down");
 let read = document.querySelector(".read");
-
+let savetext = document.querySelector(".savetext")
+let readtext = document.querySelector(".readtext")
 pencolor.onchange = function() {
     var colorchanged;
     alert(pencolor.value);
@@ -225,8 +227,8 @@ clean.onclick = function() {
     a.clean()
 };
 
-random.onclick = function() {
-    a.Random(100)
+save.onclick = function() {
+    a.save(100)
 };
 
 window.addEventListener('message', function(e) {
