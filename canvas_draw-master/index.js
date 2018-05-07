@@ -76,12 +76,9 @@ run.prototype.toggleClick = function(o, draw) {
     })
 
     if (has.is) {
-        if(o.x<20 && o.y<20){
         this.clickedArr.push(o)
             this.drawBgBox(o.x * this.boxSize, o.y * this.boxSize, true)
-            
         }
-    }
     if (!has.is && !draw) {
         if(o.x<20 && o.y<20){
         this.clickedArr.splice(has.index, 1)
@@ -195,9 +192,7 @@ let read = document.querySelector(".read");
 let savetext = document.querySelector(".savetext")
 let readtext = document.querySelector(".readtext")
 pencolor.onchange = function() {
-    var colorchanged;
-    alert(pencolor.value);
-
+   
     if(pencolor.value == 1){
         colorchanged = "#ff0033"
     }else if(pencolor.value == 2){
@@ -227,7 +222,7 @@ read.onclick = function() {
 
 clean.onclick = function() {
     a.clean()
-   
+
 };
 
 save.onclick = function() {
@@ -253,17 +248,17 @@ window.addEventListener('message', function(e) {
                         } else{
                         
                         try{
-                     
-                        result = JSON.parse(e.data.data.neb_call.result)
+                        a.clean();
+                        result = JSON.parse(e.data.data.neb_call.result);
                         console.log(result.value);
                         if(result.value){
                         var points = result.value.split('|');
                         for (var i=0;i<points.length;i++)
                         {
-                       console.log(points[i]);
+                       //console.log(points[i]);
                         if(points[i]!=""){
                         var point=points[i].split(':');
-                        console.log(point);
+                       // console.log(point);
                         var drawp=point[1].split(',');
                         
                         var xz = drawp[0];
@@ -273,13 +268,31 @@ window.addEventListener('message', function(e) {
                     
                         let q = {};
 
-                        q.x = parseInt(parseInt(drawp[0]) * 30)
-                        q.y = parseInt(parseInt(drawp[1]) * 30)
-                        console.log(q.x);
-                        console.log(q.y);
+                        q.x = parseInt(parseInt(drawp[0]));
+                        q.y = parseInt(parseInt(drawp[1]));
+                        var colorsaved=parseInt(drawp[2]);
+                        console.log(colorsaved);
+                        if(colorsaved == 1){
+                        colorchanged = "#ff0033"
+                        }else if(colorsaved == 2){
+                        colorchanged = "#ff9900"
+                        }else if(colorsaved == 3){
+                        colorchanged = "#ffff99"
+                        }else if(colorsaved == 4){
+                        colorchanged = "#66ff66"
+                        }else if(colorsaved == 5){
+                        colorchanged = "#6699ff"
+                        }else if(colorsaved == 6){
+                        colorchanged = "#cc66ff"
+                        }else if(colorsaved == 7){
+                        colorchanged = "#e8e8e8"
+                        }else if(colorsaved == 8){
+                        colorchanged = "#ffffff"
+                        }else if(colorsaved == 9){
+                        colorchanged = "#000033"
+                        }
+                        a.setpenColor(colorchanged,colorsaved);
                         a.toggleClick(q)
-                        console.log(b)
-                        
                   
                         }
                         }

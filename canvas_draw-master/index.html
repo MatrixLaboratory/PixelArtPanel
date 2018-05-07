@@ -5,18 +5,21 @@
     <title>Pixel Art Panel</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body background="1.jpg" style=" background-repeat:no-repeat;background-size:cover; ">
     <div class="noExtension" id="noExtension" style="display:none">
         NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use HUMAN DIARY
     </div>
-    <div>Pixel Art Panel</div>
-    <div class="main">
+    
+    <div class="main"  >
+     <center><div>Pixel Art Panel</div></center>
+        <br>
+        <center><canvas width="600" height="600"></canvas>
+        <br>
         <button class="clean">clean</button>
-        <button class="save">save</button><input class="savetext"></input>
-        <button class="read">read</button><input class="readtext"></input>
+     
         <select class="pencolor">
             <option selected="selected" value=1>red</option>
-            <option  value=2>orange</option>
+            <option  value=2 text="orange">orange</option>
             <option  value=3>yellow</option>
             <option  value=4>green</option>
             <option  value=5>blue</option>
@@ -27,7 +30,8 @@
         </select>
         <button class="down">down the image</button>
         <br>
-        <canvas width="600" height="600"></canvas>
+        <button class="save">save</button><input class="savetext"></input>
+        <button class="read">read</button><input class="readtext"></input></center>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
