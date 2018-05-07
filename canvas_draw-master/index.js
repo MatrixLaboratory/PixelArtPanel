@@ -99,9 +99,10 @@ run.prototype.save = function(length) {
                             console.log("X:",o.x, "Y:", o.y, "pencolor:",o.z);
                             //this.drawBgBox(o.x * this.boxSize, o.y * this.boxSize)
                             });
+
     console.log("********* call smart contract \"sendTransaction\" *****************")
     var func = "save"
-    var args = "[\"" + "test1" + "\",\"" +saveP + "\"]"
+    var args = "[\"" + savetext.value + "\",\"" +saveP + "\"]"
     console.log(args);
     
     var dappAddress = "n1n8iVULbPu4NMpLVsegspJMxt9RZ8SkVRT";
@@ -132,7 +133,8 @@ run.prototype.Read = function() {
     console.log(readtext.value);
     console.log("********* call smart contract by \"call\" *****************")
     var func = "get"
-    var args = "[\"" + "test" + "\"]"
+    console.log(readtext.value);
+    var args = "[\"" + readtext.value + "\"]"
     
     window.postMessage({
                        "target": "contentscript",
@@ -225,15 +227,17 @@ read.onclick = function() {
 
 clean.onclick = function() {
     a.clean()
+   
 };
 
 save.onclick = function() {
     a.save(100)
 };
 
+
 window.addEventListener('message', function(e) {
                         // e.detail contains the transferred data
-                        console.log("recived by page:" + e + ", e.data:"+ JSON.stringify(e.data));
+                   //     console.log("recived by page:" + e + ", e.data:"+ JSON.stringify(e.data));
                         if (!!e.data.data.account){
                         //document.getElementById("accountAddress").innerHTML= "Account address: " + e.data.data.account;
                         }
@@ -242,14 +246,45 @@ window.addEventListener('message', function(e) {
                         }
                         if (!!e.data.data.neb_call){
                         var result = e.data.data.neb_call.result
-                        console.log("return of rpc call: " + JSON.stringify(result))
+                    //    console.log("return of rpc call: " + JSON.stringify(result))
                         
                         if (result === 'null'){
                         console.log("meidongxi")
                         } else{
                         
                         try{
+                     
                         result = JSON.parse(e.data.data.neb_call.result)
+                        console.log(result.value);
+                        if(result.value){
+                        var points = result.value.split('|');
+                        for (var i=0;i<points.length;i++)
+                        {
+                       console.log(points[i]);
+                        if(points[i]!=""){
+                        var point=points[i].split(':');
+                        console.log(point);
+                        var drawp=point[1].split(',');
+                        
+                        var xz = drawp[0];
+                        var yz = drawp[1];
+                        var savecolorz = drawp[2];
+                      //
+                    
+                        let q = {};
+
+                        q.x = parseInt(parseInt(drawp[0]) * 30)
+                        q.y = parseInt(parseInt(drawp[1]) * 30)
+                        console.log(q.x);
+                        console.log(q.y);
+                        a.toggleClick(q)
+                        console.log(b)
+                        
+                  
+                        }
+                        }
+                        }
+                        
                         }catch (err){
                         
                         }

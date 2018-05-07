@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Pixel Art Panel</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div class="noExtension" id="noExtension" style="display:none">
+        NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use HUMAN DIARY
+    </div>
+    <div>Pixel Art Panel</div>
     <div class="main">
         <button class="clean">clean</button>
         <button class="save">save</button><input class="savetext"></input>
@@ -25,9 +29,29 @@
         <br>
         <canvas width="600" height="600"></canvas>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+                                  
+                                  setTimeout(checkNebpay,100);
+                                  });
+                                  
+                                  function checkNebpay() {
+                                      console.log("check nebpay")
+                                      try{
+                                          var NebPay = require("nebpay");
+                                          console.log("ok")
+                                         
+                                            
+                                      }catch(e){
+                                          console.log ("Extension wallet is not installed, please install it first.")
+                                          var divnew = document.getElementById("noExtension");
+                                          divnew.style.display="show"
+                                      }
+                                  }
+        </script>
     <script src="https://cdn.bootcss.com/downloadjs/1.4.7/download.min.js"></script>
     <script src="index.js">
-     
+      
         </script>
 </body>
 </html>
