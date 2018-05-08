@@ -14,7 +14,7 @@ function run(canvas, obj) {
     this.pencolornow = 1;
     return this
 }
-dappAddress="n1n8iVULbPu4NMpLVsegspJMxt9RZ8SkVRT"
+dappAddress="n1hR3KXUH4hExmUq5XyWtqUm6zG2UzJy1B3"
 run.prototype.start = function() {
 
     this.bgWidthLength = parseInt(this.canvas.width / this.boxSize)
@@ -102,12 +102,12 @@ run.prototype.save = function(length) {
     var args = "[\"" + savetext.value + "\",\"" +saveP + "\"]"
     console.log(args);
     
-    var dappAddress = "n1n8iVULbPu4NMpLVsegspJMxt9RZ8SkVRT";
+    var dappAddress = "n1hR3KXUH4hExmUq5XyWtqUm6zG2UzJy1B3";
     window.postMessage({
                        "target": "contentscript",
                        "data":{
                        "to" : dappAddress,
-                       "value" : "0.01",
+                       "value" : "0.001",
                        "contract" : {
                        "function" : func,
                        "args" : args
@@ -250,9 +250,9 @@ window.addEventListener('message', function(e) {
                         try{
                         a.clean();
                         result = JSON.parse(e.data.data.neb_call.result);
-                        console.log(result.value);
-                        if(result.value){
-                        var points = result.value.split('|');
+                        console.log(result.point);
+                        if(result.point){
+                        var points = result.point.split('|');
                         for (var i=0;i<points.length;i++)
                         {
                        //console.log(points[i]);
