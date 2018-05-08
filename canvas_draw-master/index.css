@@ -6,7 +6,6 @@ html,body{
 .main{
     width: 800px;
     margin: 20px auto;
-    border: 1px solid #e8e8e8;
     
     
 }
@@ -33,13 +32,13 @@ html,body{
     margin:0 20px 20px 0;
     position: relative;
     overflow: hidden;
-color: #8c96a0;
-text-shadow:1px 1px 1px #fff;
-border:1px solid #dce1e6;
-box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;
-background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);
-background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
-    background: linear-gradient(top,#f2f3f7,#e4e8ec);
+    color: #fff;
+    text-shadow:1px 1px 1px #000;
+    border:1px solid #ECBF2C;
+    box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;
+background: -webkit-linear-gradient(top,#F7DD89,#ECBF2C);
+background: -moz-linear-gradient(top,#F7DD89,#ECBF2C);
+    background: linear-gradient(top,#F7DD89,#ECBF2C);
     
 }
 .save{
@@ -48,7 +47,7 @@ background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
     text-align: center;
     font-weight: bold;
     color: #fff;
-    text-shadow:1px 1px 1px #333;
+    text-shadow:1px 1px 1px #000;
     border-radius: 5px;
     margin:0 20px 20px 0;
     position: relative;
@@ -65,7 +64,7 @@ background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
     text-align: center;
     font-weight: bold;
     color: #fff;
-    text-shadow:1px 1px 1px #333;
+    text-shadow:1px 1px 1px #000;
     border-radius: 5px;
     margin:0 20px 20px 0;
     position: relative;
@@ -82,7 +81,7 @@ background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
     text-align: center;
     font-weight: bold;
     color: #fff;
-    text-shadow:1px 1px 1px #333;
+    text-shadow:1px 1px 1px #000;
     border-radius: 5px;
     margin:0 20px 20px 0;
     position: relative;
@@ -145,11 +144,13 @@ background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
     
     position: relative;
     overflow: hidden;
-    border:1px solid #b42323;
-    box-shadow: 0 1px 2px #e99494 inset,0 -1px 0 #954b4b inset,0 -2px 3px #e99494 inset;
-    background: -webkit-linear-gradient(top,#EE82EE,#b92929);
-    background: -moz-linear-gradient(top,#EE82EE,#b92929);
-    background: linear-gradient(top,#EE82EE,#b92929);
+    color: #000;
+    text-shadow:1px 1px 1px #fff;
+    border:1px solid #dce1e6;
+    box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;
+    background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);
+    background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
+    background: linear-gradient(top,#f2f3f7,#e4e8ec);
 }
 
 canvas{

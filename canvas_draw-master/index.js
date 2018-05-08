@@ -222,7 +222,7 @@ read.onclick = function() {
 
 clean.onclick = function() {
     a.clean()
-
+    
 };
 
 save.onclick = function() {
